@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --nav-green: #00ff9d;
+  --nav-blue: #2a2fff;
+  --nav-bg: rgba(10, 10, 20, 0.95);
+  --nav-border: rgba(0, 255, 157, 0.1);
+  --nav-text: #a0a0b0;
+  --nav-font: 'Press Start 2P', 'Courier New', monospace;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navFlicker {
+  0%, 90%, 94%, 100% { opacity: 1; }
+  92% { opacity: 0.7; }
+}
+
+@keyframes diamondGlow {
+  0%, 100% { box-shadow: 0 0 6px var(--nav-blue); }
+  50%       { box-shadow: 0 0 14px var(--nav-blue), 0 0 24px rgba(42,47,255,0.4); }
+}
+
+/* ── Nav container ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--nav-border);
+  background: var(--nav-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  animation: fadeInDown 0.6s ease forwards;
+}
+
+/* ── Logo ── */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav__diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--nav-blue);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: diamondGlow 2s ease-in-out infinite;
+}
+
+.nav__brand {
+  font-family: var(--nav-font);
+  font-size: 11px;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* ── Links ── */
+.nav__links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav__link {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-family: var(--nav-font);
+  font-size: 9px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  animation: navFlicker 8s infinite;
+}
+
+.nav__link:hover {
+  color: var(--nav-green);
+  border-bottom-color: var(--nav-green);
+}
+
+/* ── Actions ── */
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav__icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--nav-text);
+  padding: 6px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__icon-btn:hover { color: var(--nav-green); }
+
+.nav__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nav-blue), var(--nav-green));
+  border: 2px solid var(--nav-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--nav-font);
+  font-size: 10px;
+  color: #0a0a14;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.nav__avatar:hover { transform: scale(1.08); }
