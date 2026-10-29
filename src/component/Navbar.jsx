@@ -1,8 +1,21 @@
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import "../style/Navbar.css";
+import foto from "../assets/img/perfil.jpg";
 
 const NAV_LINKS = ["Projects", "Skills", "CV", "Services", "Contact"];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  // Cerrar con Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <nav className="nav">
       <div className="nav__logo">
@@ -12,8 +25,8 @@ export default function Navbar() {
 
       <div className="nav__links">
         {NAV_LINKS.map(link => (
-          <a key={link} href="#" className="nav__link">{link}</a>
-        ))}
+  <a key={link} href={`#${link.toLowerCase()}`} className="nav__link">{link}</a>
+))}
       </div>
 
       <div className="nav__actions">
@@ -27,8 +40,32 @@ export default function Navbar() {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         </button>
-        <div className="nav__avatar">AJ</div>
+
+        <button
+          className="nav__avatar"
+          onClick={() => setOpen(true)}
+          aria-label="Ver foto de perfil"
+        >
+          <img src={foto} alt="Ivandy Casaya" />
+        </button>
       </div>
+
+      {open &&
+        createPortal(
+          <div className="lightbox" onClick={() => setOpen(false)}>
+            <div className="lightbox__frame" onClick={(e) => e.stopPropagation()}>
+              <img src={foto} alt="Ivandy Casaya" />
+              <button
+                className="lightbox__close"
+                onClick={() => setOpen(false)}
+                aria-label="Cerrar"
+              >
+                X
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
     </nav>
   );
 }

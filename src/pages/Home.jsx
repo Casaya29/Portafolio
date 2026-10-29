@@ -225,19 +225,19 @@ export default function PixelCraftHome() {
         </div>
 
         <div className="binary-rain">
-          {["01","10","11","00","10","01","11","10","00","01","11","10"].map((bin, i) => (
-            <div
-              key={i}
-              className="binary-rain__row"
-              style={{
-                opacity: (12 - i) / 12,
-                animationDuration: `${2 + i * 0.3}s`,
-                animationDelay: `${i * 0.2}s`,
-              }}
-            >
-              {bin}
-            </div>
-          ))}
+          {Array.from({ length: 24 }, (_, i) => ["01","10","11","00"][i % 4]).map((bin, i, arr) => (
+  <div
+    key={i}
+    className="binary-rain__row"
+    style={{
+      opacity: (arr.length - i) / arr.length,
+      animationDuration: `${2 + (i % 12) * 0.3}s`,
+      animationDelay: `${(i % 12) * 0.2}s`,
+    }}
+  >
+    {bin}
+  </div>
+))}
         </div>
       </section>
 

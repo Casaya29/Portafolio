@@ -1,0 +1,135 @@
+.cv {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 56px;
+  scroll-margin-top: 80px;
+}
+
+.cv__title {
+  font-size: clamp(18px, 2.4vw, 28px);
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+  margin-bottom: 16px;
+}
+
+.cv__sub {
+  font-size: 8px;
+  line-height: 2;
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+/* ── Grupos ── */
+.cv__group {
+  margin-bottom: 40px;
+}
+
+.cv__group-title {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  border-left: 3px solid var(--blue);
+  padding-left: 12px;
+  margin-bottom: 24px;
+}
+
+/* ── Línea de tiempo ── */
+.cv__list {
+  list-style: none;
+}
+
+.cv__item {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 24px;
+}
+
+.cv__dot {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+}
+
+.cv__role {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.cv__meta {
+  font-size: 7px;
+  line-height: 1.8;
+  color: #5c61ff;
+  margin-bottom: 8px;
+}
+
+.cv__desc {
+  font-size: 8px;
+  line-height: 2;
+  color: var(--text-muted);
+}
+
+/* ── Logros ── */
+.cv__achievements {
+  list-style: none;
+}
+
+.cv__achievements li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 8px;
+  line-height: 2;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.cv__star {
+  color: var(--blue);
+  text-shadow: 0 0 8px var(--blue);
+}
+
+/* ── Botón ── */
+.cv__download {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.cv__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  animation: btnGlow 2.5s ease-in-out infinite;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.cv__btn:hover {
+  background: #1a1fef;
+  transform: translateY(-2px);
+}
+
+.cv__btn:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+  .cv { padding: 40px 24px; }
+}

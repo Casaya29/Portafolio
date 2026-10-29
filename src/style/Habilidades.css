@@ -1,0 +1,139 @@
+/* ── Sección ── */
+.skills {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 56px;
+}
+
+.skills__title {
+  font-size: clamp(18px, 2.4vw, 28px);
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+  margin-bottom: 16px;
+}
+
+.skills__sub {
+  font-size: 8px;
+  line-height: 2;
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+/* ── Grupos ── */
+.skills__group {
+  margin-bottom: 40px;
+}
+
+.skills__group-title {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* ── Tarjeta ── */
+.skill-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: var(--bg-gradient, linear-gradient(135deg, #0d0d1f 0%, #0a1020 100%));
+  border: 1px solid rgba(42, 47, 255, 0.3);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.skill-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 16px rgba(42, 47, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.skill-card__icon {
+  min-width: 28px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--blue);
+  text-shadow: 0 0 8px var(--blue);
+}
+
+.skill-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-card__name {
+  font-size: 9px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+
+.skill-card__level {
+  font-size: 7px;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.skill-card__projects {
+  font-size: 7px;
+  color: #555577;
+  margin-top: 10px;
+}
+
+/* ── Barra de progreso ── */
+.skill-bar {
+  height: 6px;
+  background: rgba(42, 47, 255, 0.15);
+}
+
+.skill-bar__fill {
+  height: 100%;
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  transition: width 0.6s ease;
+}
+
+/* ── Botón CV ── */
+.skills__cv {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 14px 24px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  transition: background 0.2s, transform 0.1s;
+}
+
+.skills__cv:hover {
+  background: #1a1fef;
+  transform: translateY(-2px);
+}
+
+.skills__cv:active {
+  transform: scale(0.97);
+}
+
+/* ── Móvil ── */
+@media (max-width: 768px) {
+  .skills {
+    padding: 40px 24px;
+  }
+
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+}

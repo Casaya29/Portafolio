@@ -1,0 +1,147 @@
+.projects {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 56px;
+  scroll-margin-top: 80px;
+}
+
+.projects__title {
+  font-size: clamp(18px, 2.4vw, 28px);
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+  margin-bottom: 16px;
+}
+
+.projects__sub {
+  font-size: 8px;
+  line-height: 2;
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.projects__empty {
+  font-size: 8px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ── Filtros y etiquetas ── */
+.projects__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.chip {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  padding: 8px 12px;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid rgba(42, 47, 255, 0.4);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.chip:hover {
+  color: var(--text-primary);
+  border-color: var(--blue);
+}
+
+.chip--active {
+  color: var(--text-primary);
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.chip--small {
+  font-size: 7px;
+  padding: 6px 8px;
+  color: var(--green);
+  border-color: rgba(0, 255, 157, 0.3);
+}
+
+.chip--small:hover {
+  color: var(--bg);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+/* ── Tarjetas ── */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  background: linear-gradient(135deg, #0d0d1f 0%, #0a1020 100%);
+  border: 1px solid rgba(42, 47, 255, 0.3);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 16px rgba(42, 47, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.project-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.project-card__title {
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.project-card__year {
+  font-size: 7px;
+  color: #555577;
+}
+
+.project-card__desc {
+  font-size: 8px;
+  line-height: 2;
+  color: var(--text-muted);
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-card__links {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.project-card__links a {
+  font-size: 8px;
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.project-card__links a:hover {
+  color: var(--green);
+}
+
+@media (max-width: 768px) {
+  .projects { padding: 40px 24px; }
+}
