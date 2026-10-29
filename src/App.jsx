@@ -5,6 +5,7 @@ import Habilidades from "./pages/Habilidades";
 import Curriculum from "./pages/Cv";
 import Servicios from "./pages/Servicios";
 import Contacto from "./pages/Contacto";
+import Footer from "./component/Footer";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Curriculum />
       <Servicios onSelect={setRequest} />
       <Contacto request={request} />
+       <Footer />
     </div>
   );
 }

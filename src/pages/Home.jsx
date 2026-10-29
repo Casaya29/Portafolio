@@ -241,7 +241,7 @@ export default function PixelCraftHome() {
         </div>
       </section>
 
-      <div className="scroll-hint">▼ © 2026 ISCM. Todos los derechos reservados. ▼</div>
+      
     </div>
   );
 }
