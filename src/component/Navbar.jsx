@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import "../style/Navbar.css";
 import foto from "../assets/img/perfil.jpg";
 
-const NAV_LINKS = ["Projects", "Skills", "CV", "Services", "Contact"];
+const NAV_LINKS = ["Home", "Projects", "Skills", "CV", "Services", "Contact"];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
