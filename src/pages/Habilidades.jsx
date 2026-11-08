@@ -1,5 +1,6 @@
 import "../style/Habilidades.css";
 import { projects, skillGroups } from "../data/portafolio";
+import TypeText from "../component/TypeText";
 
 const levelLabel = (p) =>
   p < 35 ? "Principiante" : p < 60 ? "Intermedio" : p < 85 ? "Avanzado" : "Experto";
@@ -45,10 +46,14 @@ function SkillCard({ skill, type }) {
 export default function Habilidades() {
   return (
     <section className="skills" id="skills">
-      <h2 className="skills__title">Mis Skills</h2>
-      <p className="skills__sub">
-        Tecnologías y herramientas que he usado en mis proyectos.
-      </p>
+<TypeText as="h2" className="skills__title" text="Mis Skills" speed={60} glitch />
+<TypeText
+  as="p"
+  className="skills__sub"
+  text="Tecnologías y herramientas que he usado en mis proyectos."
+  speed={20}
+  delay={700}
+/>
 
       {skillGroups.map((group) => (
         <div key={group.title} className="skills__group">

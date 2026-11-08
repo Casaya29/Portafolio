@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "../style/Contacto.css";
 import { contact } from "../data/portafolio";
+import TypeText from "../component/TypeText";
 
 const ICONS = {
   linkedin: (
@@ -80,11 +81,14 @@ export default function Contacto({ request }) {
 
   return (
     <section className="contact" id="contact">
-      <h2 className="contact__title">Contáctame</h2>
-      <p className="contact__sub">
-        Estoy abierto a hablar de nuevos proyectos, ideas u oportunidades.
-        Escríbeme y te responderé lo antes posible.
-      </p>
+      <TypeText as="h2" className="contact__title" text="Contáctame" speed={60} glitch />
+      <TypeText
+        as="p"
+        className="contact__sub"
+        text="Estoy abierto a hablar de nuevos proyectos, ideas u oportunidades. Escríbeme y te responderé lo antes posible."
+        speed={16}
+        delay={800}
+      />
 
       <div className="contact__layout">
         <form className="contact__form" onSubmit={handleSubmit}>

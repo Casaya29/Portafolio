@@ -1,5 +1,6 @@
 import "../style/Servicios.css";
 import { services } from "../data/portafolio";
+import TypeText from "../component/TypeText";
 
 const ICONS = {
   code: (
@@ -24,10 +25,14 @@ const ICONS = {
 export default function Servicios({ onSelect }){
   return (
     <section className="services" id="services">
-      <h2 className="services__title">Servicios</h2>
-      <p className="services__sub">
-        Creando soluciones digitales a través de código y buen diseño.
-      </p>
+<TypeText as="h2" className="services__title" text="Servicios" speed={60} glitch />
+<TypeText
+  as="p"
+  className="services__sub"
+  text="Creando soluciones digitales a través de código y buen diseño."
+  speed={20}
+  delay={700}
+/>
 
       <div className="services__list">
         {services.map((s) => (

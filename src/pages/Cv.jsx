@@ -1,5 +1,6 @@
 import "../style/Cv.css";
 import { cv, CV_URL } from "../data/portafolio";
+import TypeText from "../component/TypeText";
 
 function Group({ title, items }) {
   return (
@@ -24,10 +25,14 @@ function Group({ title, items }) {
 export default function Curriculum() {
   return (
     <section className="cv" id="cv">
-      <h2 className="cv__title">Mi Trayectoria</h2>
-      <p className="cv__sub">
-        Un resumen de mi experiencia y educación. Para ver el detalle, descarga el CV completo.
-      </p>
+<TypeText as="h2" className="cv__title" text="Mi Trayectoria" speed={60} glitch />
+<TypeText
+  as="p"
+  className="cv__sub"
+  text="Un resumen de mi experiencia y educación. Para ver el detalle, descarga el CV completo."
+  speed={18}
+  delay={900}
+/>
 
       <Group title="Experiencia" items={cv.experience} />
       <Group title="Educación" items={cv.education} />

@@ -10,15 +10,15 @@ export const projects = [
     description:
       "Diseño y desarrollo del front-end y back-end de una página web para un profesional de Arquitectura e Ingeniería.",
     tags: ["javascript", "sqlserver"],
-    repo: "", // ejemplo: "https://github.com/tuusuario/km-ingenieria"
-    demo: "", // ejemplo: "https://kmingenieria.com"
+    repo: "https://github.com/Casaya29/Civil_Consulting_Frontend", 
+    demo: "", 
   },
   {
     title: "Mininos UCA (front-end)",
     year: 2022,
     description:
       "Colaboré en el front-end, en la documentación del proyecto y en el soporte de mantenimiento.",
-    tags: ["javascript"],
+    tags: ["C#", "javascript", "ASP.NET"],
     repo: "",
     demo: "",
   },
@@ -27,8 +27,8 @@ export const projects = [
     year: 2026,
     description: "Este portafolio, con estilo pixelado, hecho con React y Vite.",
     tags: ["javascript", "vscode"],
-    repo: "",
-    demo: "",
+    repo: "https://github.com/Casaya29/Portafolio",
+    demo: "https://portafolio-ebon-seven-84.vercel.app",
   },
 ];
 

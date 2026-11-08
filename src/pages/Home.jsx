@@ -1,9 +1,19 @@
 import "../style/Home.css";
 import Navbar from "../component/Navbar";
 import { useState, useEffect, useRef, useCallback } from "react";
+import { projects } from "../data/portafolio";
 
+// Estadísticas calculadas a partir de los proyectos
+const projectYears = projects.map((p) => p.year).filter(Boolean);
+const years = projectYears.length
+  ? new Date().getFullYear() - Math.min(...projectYears)
+  : 0;
 
-
+const stats = [
+  [`${projects.length}+`, "Proyectos"],
+  [years < 1 ? "<1yr" : `${years}yr`, "XP"],
+  [`${new Set(projects.flatMap((p) => p.tags)).size}+`, "Habilidades"],
+];
 
 function useTypewriter(text, speed = 60, startDelay = 0, trigger = true) {
   const [displayed, setDisplayed] = useState("");
@@ -204,23 +214,28 @@ export default function PixelCraftHome() {
           </p>
 
           {sub.done && (
-            <button className="explore-btn" onClick={restartAnimation}>
-              Explorar proyectos
-              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
+           <button
+  className="explore-btn"
+  onClick={() =>
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+  }
+>
+  Explorar proyectos
+  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+</button>
           )}
 
           {sub.done && (
-            <div className="hero__stats">
-              {[["42+", "Projects"], ["8yr", "XP"], ["99%", "Rating"]].map(([val, label]) => (
-                <div key={label} className="stat">
-                  <div className="stat__val">{val}</div>
-                  <div className="stat__label">{label}</div>
-                </div>
-              ))}
-            </div>
+          <div className="hero__stats">
+  {stats.map(([val, label]) => (
+    <div key={label} className="stat">
+      <div className="stat__val">{val}</div>
+      <div className="stat__label">{label}</div>
+    </div>
+  ))}
+</div>
           )}
         </div>
 

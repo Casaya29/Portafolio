@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../style/Proyectos.css";
 import { projects, skillGroups } from "../data/portafolio";
+import TypeText from "../component/TypeText";
 
 const allSkills = skillGroups.flatMap((g) => g.items);
 
@@ -16,10 +17,14 @@ export default function Proyectos() {
 
   return (
     <section className="projects" id="projects">
-      <h2 className="projects__title">Mis Proyectos</h2>
-      <p className="projects__sub">
-        Cada proyecto está vinculado a las habilidades que usé en él.
-      </p>
+          <TypeText as="h2" className="projects__title" text="Mis Proyectos" speed={60} glitch />
+      <TypeText
+        as="p"
+        className="projects__sub"
+        text="Cada proyecto está vinculado a las habilidades que usé en él."
+        speed={20}
+        delay={800}
+      />
 
       {usedTags.length > 0 && (
         <div className="projects__filters">
