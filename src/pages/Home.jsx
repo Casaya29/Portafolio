@@ -2,18 +2,7 @@ import "../style/Home.css";
 import Navbar from "../component/Navbar";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { projects } from "../data/portafolio";
-
-// Estadísticas calculadas a partir de los proyectos
-const projectYears = projects.map((p) => p.year).filter(Boolean);
-const years = projectYears.length
-  ? new Date().getFullYear() - Math.min(...projectYears)
-  : 0;
-
-const stats = [
-  [`${projects.length}+`, "Proyectos"],
-  [years < 1 ? "<1yr" : `${years}yr`, "XP"],
-  [`${new Set(projects.flatMap((p) => p.tags)).size}+`, "Habilidades"],
-];
+import { useSettings } from "../i18n/settings";
 
 function useTypewriter(text, speed = 60, startDelay = 0, trigger = true) {
   const [displayed, setDisplayed] = useState("");
@@ -134,6 +123,26 @@ function LightBeam() {
 
 //Carta de presentacion
 export default function PixelCraftHome() {
+  const { t } = useSettings();
+
+  // Estadísticas calculadas a partir de los proyectos
+  const projectYears = projects.map((p) => p.year).filter(Boolean);
+  const years = projectYears.length
+    ? new Date().getFullYear() - Math.min(...projectYears)
+    : 0;
+  const stats = [
+    [`${projects.length}+`, t("Proyectos")],
+    [years < 1 ? "<1yr" : `${years}yr`, t("XP")],
+    [`${new Set(projects.flatMap((p) => p.tags)).size}+`, t("Habilidades")],
+  ];
+
+  // Textos del hero en el idioma activo
+  const hello = t("Hola, soy");
+  const myName = "Ivandy Casaya";
+  const subText = t(
+    "estudiante de Ingeniería en Sistemas y desarrollador web. Me apasiona transformar ideas en soluciones digitales mediante código, diseño y tecnología. Explora mis proyectos y conoce mi experiencia en el desarrollo de aplicaciones web."
+  );
+
   const [visible, setVisible] = useState(false);
   const heroRef = useRef(null);
   const observerRef = useRef(null);
@@ -160,13 +169,13 @@ export default function PixelCraftHome() {
     return () => observerRef.current?.disconnect();
   }, [restartAnimation]);
 
-  const title1 = useTypewriter("Hola,soy", 55, 400, visible);
-  const title2 = useTypewriter("Ivandy Casaya", 80, 400 + 55 * 17 + 100, visible);
-  
+  const title1 = useTypewriter(hello, 55, 400, visible);
+  const title2 = useTypewriter(myName, 80, 400 + 55 * hello.length + 100, visible);
+
   const sub = useTypewriter(
-    "estudiante de Ingeniería en Sistemas y desarrollador web. Me apasiona transformar ideas en soluciones digitales mediante código, diseño y tecnología. Explora mis proyectos y conoce mi experiencia en el desarrollo de aplicaciones web.",
+    subText,
     28,
-    400 + 55 * 17 + 80 * 7 + 300,
+    400 + 55 * hello.length + 80 * myName.length + 300,
     visible
   );
 
@@ -191,7 +200,7 @@ export default function PixelCraftHome() {
         <div className="hero__content">
           <div className={`hero__badge ${visible ? "hero__badge--visible" : ""}`}>
             <span className="hero__badge-dot" />
-            Jugador Uno
+            {t("Jugador Uno")}
           </div>
 
           <h1 className="hero__title">
@@ -220,7 +229,7 @@ export default function PixelCraftHome() {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
   }
 >
-  Explorar proyectos
+  {t("Explorar proyectos")}
   <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
     <path d="M5 12h14M12 5l7 7-7 7" />
   </svg>

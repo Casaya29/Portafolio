@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../style/Proyectos.css";
 import { projects, skillGroups } from "../data/portafolio";
 import TypeText from "../component/TypeText";
+import { useSettings } from "../i18n/settings";
 
 const allSkills = skillGroups.flatMap((g) => g.items);
 
@@ -9,6 +10,7 @@ const allSkills = skillGroups.flatMap((g) => g.items);
 const skillName = (id) => allSkills.find((s) => s.id === id)?.name ?? id;
 
 export default function Proyectos() {
+  const { t } = useSettings();
   const [filter, setFilter] = useState(null);
 
   // Solo se muestran como filtro las skills que algún proyecto usa
@@ -17,11 +19,11 @@ export default function Proyectos() {
 
   return (
     <section className="projects" id="projects">
-          <TypeText as="h2" className="projects__title" text="Mis Proyectos" speed={60} glitch />
+          <TypeText as="h2" className="projects__title" text={t("Mis Proyectos")} speed={60} glitch />
       <TypeText
         as="p"
         className="projects__sub"
-        text="Cada proyecto está vinculado a las habilidades que usé en él."
+        text={t("Cada proyecto está vinculado a las habilidades que usé en él.")}
         speed={20}
         delay={800}
       />
@@ -32,7 +34,7 @@ export default function Proyectos() {
             className={`chip ${filter === null ? "chip--active" : ""}`}
             onClick={() => setFilter(null)}
           >
-            Todos
+            {t("Todos")}
           </button>
           {usedTags.map((tag) => (
             <button
@@ -40,24 +42,24 @@ export default function Proyectos() {
               className={`chip ${filter === tag ? "chip--active" : ""}`}
               onClick={() => setFilter(tag === filter ? null : tag)}
             >
-              {skillName(tag)}
+              {t(skillName(tag))}
             </button>
           ))}
         </div>
       )}
 
       {visible.length === 0 ? (
-        <p className="projects__empty">Aún no hay proyectos con esta habilidad.</p>
+        <p className="projects__empty">{t("Aún no hay proyectos con esta habilidad.")}</p>
       ) : (
         <div className="projects__grid">
           {visible.map((p) => (
             <article key={p.title} className="project-card">
               <div className="project-card__head">
-                <h3 className="project-card__title">{p.title}</h3>
+                <h3 className="project-card__title">{t(p.title)}</h3>
                 {p.year && <span className="project-card__year">{p.year}</span>}
               </div>
 
-              <p className="project-card__desc">{p.description}</p>
+              <p className="project-card__desc">{t(p.description)}</p>
 
               <div className="project-card__tags">
                 {p.tags.map((tag) => (
@@ -66,7 +68,7 @@ export default function Proyectos() {
                     className="chip chip--small"
                     onClick={() => setFilter(tag)}
                   >
-                    {skillName(tag)}
+                    {t(skillName(tag))}
                   </button>
                 ))}
               </div>
@@ -74,10 +76,10 @@ export default function Proyectos() {
               {(p.repo || p.demo) && (
                 <div className="project-card__links">
                   {p.repo && (
-                    <a href={p.repo} target="_blank" rel="noreferrer">Código →</a>
+                    <a href={p.repo} target="_blank" rel="noreferrer">{t("Código →")}</a>
                   )}
                   {p.demo && (
-                    <a href={p.demo} target="_blank" rel="noreferrer">Ver demo →</a>
+                    <a href={p.demo} target="_blank" rel="noreferrer">{t("Ver demo →")}</a>
                   )}
                 </div>
               )}

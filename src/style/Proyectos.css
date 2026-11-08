@@ -16,7 +16,7 @@
 }
 
 .projects__sub {
-  font-size: 8px;
+  font-size: 10px;
   line-height: 2;
   text-align: center;
   color: var(--text-muted);
@@ -24,7 +24,7 @@
 }
 
 .projects__empty {
-  font-size: 8px;
+  font-size: 10px;
   text-align: center;
   color: var(--text-muted);
 }
@@ -40,7 +40,7 @@
 
 .chip {
   font-family: var(--font-pixel);
-  font-size: 8px;
+  font-size: 10px;
   padding: 8px 12px;
   color: var(--text-muted);
   background: transparent;
@@ -61,7 +61,7 @@
 }
 
 .chip--small {
-  font-size: 7px;
+  font-size: 10px;
   padding: 6px 8px;
   color: var(--green);
   border-color: rgba(0, 255, 157, 0.3);
@@ -104,18 +104,18 @@
 }
 
 .project-card__title {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--text-primary);
 }
 
 .project-card__year {
-  font-size: 7px;
-  color: #555577;
+  font-size: 10px;
+  color: #9090b0;
 }
 
 .project-card__desc {
-  font-size: 8px;
+  font-size: 10px;
   line-height: 2;
   color: var(--text-muted);
 }
@@ -133,7 +133,7 @@
 }
 
 .project-card__links a {
-  font-size: 8px;
+  font-size: 10px;
   color: var(--cyan);
   text-decoration: none;
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SettingsProvider } from "./i18n/settings";
 import Home from "./pages/Home";
 import Proyectos from "./pages/Proyectos";
 import Habilidades from "./pages/Habilidades";
@@ -13,15 +14,17 @@ function App() {
   const [request, setRequest] = useState(null);
 
   return (
-    <div>
-      <Home />
-      <Proyectos />
-      <Habilidades />
-      <Curriculum />
-      <Servicios onSelect={setRequest} />
-      <Contacto request={request} />
-       <Footer />
-    </div>
+    <SettingsProvider>
+      <div>
+        <Home />
+        <Proyectos />
+        <Habilidades />
+        <Curriculum />
+        <Servicios onSelect={setRequest} />
+        <Contacto request={request} />
+        <Footer />
+      </div>
+    </SettingsProvider>
   );
 }
 

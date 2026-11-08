@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "../style/Contacto.css";
 import { contact } from "../data/portafolio";
 import TypeText from "../component/TypeText";
+import { useSettings } from "../i18n/settings";
 
 const ICONS = {
   linkedin: (
@@ -23,6 +24,7 @@ const ICONS = {
 };
 
 export default function Contacto({ request }) {
+  const { t } = useSettings();
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const nameRef = useRef(null);
 
@@ -81,60 +83,60 @@ export default function Contacto({ request }) {
 
   return (
     <section className="contact" id="contact">
-      <TypeText as="h2" className="contact__title" text="Contáctame" speed={60} glitch />
+      <TypeText as="h2" className="contact__title" text={t("Contáctame")} speed={60} glitch />
       <TypeText
         as="p"
         className="contact__sub"
-        text="Estoy abierto a hablar de nuevos proyectos, ideas u oportunidades. Escríbeme y te responderé lo antes posible."
+        text={t("Estoy abierto a hablar de nuevos proyectos, ideas u oportunidades. Escríbeme y te responderé lo antes posible.")}
         speed={16}
         delay={800}
       />
 
       <div className="contact__layout">
         <form className="contact__form" onSubmit={handleSubmit}>
-          <label className="contact__label" htmlFor="name">Nombre</label>
+          <label className="contact__label" htmlFor="name">{t("Nombre")}</label>
           <input
-            id="name" name="name" className="contact__input" ref={nameRef}
-            placeholder="Tu nombre" value={form.name} onChange={handleChange} required
+            id="name" name="name" autoComplete="name" className="contact__input" ref={nameRef}
+            placeholder={t("Tu nombre")} value={form.name} onChange={handleChange} required
           />
 
-          <label className="contact__label" htmlFor="email">Correo</label>
+          <label className="contact__label" htmlFor="email">{t("Correo")}</label>
           <input
-            id="email" name="email" type="email" className="contact__input"
-            placeholder="Tu correo" value={form.email} onChange={handleChange} required
+            id="email" name="email" type="email" autoComplete="email" className="contact__input"
+            placeholder={t("Tu correo")} value={form.email} onChange={handleChange} required
           />
 
-          <label className="contact__label" htmlFor="subject">Asunto</label>
+          <label className="contact__label" htmlFor="subject">{t("Asunto")}</label>
           <input
             id="subject" name="subject" className="contact__input"
-            placeholder="Asunto" value={form.subject} onChange={handleChange} required
+            placeholder={t("Asunto")} value={form.subject} onChange={handleChange} required
           />
 
-          <label className="contact__label" htmlFor="message">Mensaje</label>
+          <label className="contact__label" htmlFor="message">{t("Mensaje")}</label>
           <textarea
             id="message" name="message" rows="5" className="contact__input contact__textarea"
-            placeholder="Tu mensaje" value={form.message} onChange={handleChange} required
+            placeholder={t("Tu mensaje")} value={form.message} onChange={handleChange} required
           />
 
           <button type="submit" className="contact__send" disabled={status === "sending"}>
-            {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+            {status === "sending" ? t("Enviando...") : t("Enviar mensaje")}
           </button>
 
           {status === "success" && (
             <p className="contact__msg contact__msg--ok" role="status">
-              ¡Mensaje enviado! Te responderé pronto.
+              {t("¡Mensaje enviado! Te responderé pronto.")}
             </p>
           )}
           {status === "error" && (
             <p className="contact__msg contact__msg--error" role="alert">
-              No se pudo enviar. Inténtalo de nuevo o escríbeme a {contact.email}.
+              {t("No se pudo enviar. Inténtalo de nuevo o escríbeme a")} {contact.email}.
             </p>
           )}
         </form>
 
         <div className="contact__side">
-          <h3 className="contact__side-title">Conecta conmigo</h3>
-          <p className="contact__side-sub">Encuéntrame en tus plataformas favoritas.</p>
+          <h3 className="contact__side-title">{t("Conecta conmigo")}</h3>
+          <p className="contact__side-sub">{t("Encuéntrame en tus plataformas favoritas.")}</p>
 
           <div className="contact__socials">
             {socials.map((s) => (
@@ -152,7 +154,7 @@ export default function Contacto({ request }) {
                 >
                   {ICONS[s.id]}
                 </svg>
-                {s.name}
+                {t(s.name)}
               </a>
             ))}
           </div>

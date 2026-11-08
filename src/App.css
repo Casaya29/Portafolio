@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* ── Variables ── */
 :root {
@@ -59,3 +58,64 @@ body {
 .tw { position: relative; }
 .tw__ghost { visibility: hidden; }
 .tw__live { position: absolute; inset: 0; }
+
+/* ── Modo claro ── */
+[data-theme="light"] {
+  --bg: #eef1ff;
+  --text-primary: #12122b;
+  --text-muted: #4a4a6a;
+  --green: #00724d;
+  --cyan: #0069a0;
+  --surface: linear-gradient(135deg, #ffffff 0%, #e6eaff 100%);
+  --dim: #5a5a7a;
+  color-scheme: light;
+}
+
+[data-theme="light"] .hero,
+[data-theme="light"] .nav,
+[data-theme="light"] .footer,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .service-card,
+[data-theme="light"] .social-card,
+[data-theme="light"] .contact__input {
+  background: var(--surface);
+}
+
+[data-theme="light"] .hero {
+  box-shadow: 0 0 40px rgba(42, 47, 255, 0.08), inset 0 0 60px rgba(42, 47, 255, 0.06);
+}
+
+[data-theme="light"] .stat__label,
+[data-theme="light"] .skill-card__projects,
+[data-theme="light"] .project-card__year,
+[data-theme="light"] .contact__input::placeholder {
+  color: var(--dim);
+}
+
+[data-theme="light"] .hero__title,
+[data-theme="light"] .stat__val,
+[data-theme="light"] .skills__title,
+[data-theme="light"] .projects__title,
+[data-theme="light"] .cv__title,
+[data-theme="light"] .services__title,
+[data-theme="light"] .contact__title {
+  text-shadow: none;
+}
+
+[data-theme="light"] .lightbox__close {
+  color: #fff;
+}
+
+[data-theme="light"] .cv__meta {
+  color: #3a3fd6;
+}
+
+/* ── Respeta a quien prefiere menos movimiento ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

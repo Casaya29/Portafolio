@@ -1,6 +1,7 @@
 import "../style/Servicios.css";
 import { services } from "../data/portafolio";
 import TypeText from "../component/TypeText";
+import { useSettings } from "../i18n/settings";
 
 const ICONS = {
   code: (
@@ -22,14 +23,15 @@ const ICONS = {
   ),
 };
 
-export default function Servicios({ onSelect }){
+export default function Servicios({ onSelect }) {
+  const { t } = useSettings();
   return (
     <section className="services" id="services">
-<TypeText as="h2" className="services__title" text="Servicios" speed={60} glitch />
+<TypeText as="h2" className="services__title" text={t("Servicios")} speed={60} glitch />
 <TypeText
   as="p"
   className="services__sub"
-  text="Creando soluciones digitales a través de código y buen diseño."
+  text={t("Creando soluciones digitales a través de código y buen diseño.")}
   speed={20}
   delay={700}
 />
@@ -47,22 +49,22 @@ export default function Servicios({ onSelect }){
                   {ICONS[s.icon]}
                 </svg>
               </span>
-              {s.title}
+              {t(s.title)}
             </div>
 
-            <p className="service-card__desc">{s.description}</p>
+            <p className="service-card__desc">{t(s.description)}</p>
 
                         <a
               className="service-card__btn"
               href="#contact"
               onClick={() =>
                 onSelect?.({
-                  subject: `Información sobre ${s.title}`,
-                  message: `Hola, me interesa el servicio de "${s.title}". Me gustaría recibir más información.`,
+                  subject: `${t("Información sobre")} ${t(s.title)}`,
+                  message: `${t("Hola, me interesa el servicio de")} "${t(s.title)}". ${t("Me gustaría recibir más información.")}`,
                 })
               }
             >
-              Solicitar información
+              {t("Solicitar información")}
             </a>
           </article>
         ))}
