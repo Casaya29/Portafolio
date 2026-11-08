@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import Clock from "./Clock";
 import { useSettings } from "../i18n/settings";
 import foto from "../assets/img/perfil.jpg";
+import fotoMini from "../assets/img/perfil-mini.jpg";
 import "../style/Navbar.css";
 
 const NAV_LINKS = [
@@ -87,7 +88,7 @@ export default function Navbar() {
           onClick={() => setOpen(true)}
           aria-label={t("Ver foto de perfil")}
         >
-          <img src={foto} alt="Ivandy Casaya" width="34" height="34" />
+          <img src={fotoMini} alt="Ivandy Casaya" width="34" height="34" />
         </button>
       </div>
 

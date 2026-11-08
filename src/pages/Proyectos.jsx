@@ -76,10 +76,24 @@ export default function Proyectos() {
               {(p.repo || p.demo) && (
                 <div className="project-card__links">
                   {p.repo && (
-                    <a href={p.repo} target="_blank" rel="noreferrer">{t("Código →")}</a>
+                    <a
+                      href={p.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${t("Código →")} ${t(p.title)}`}
+                    >
+                      {t("Código →")}
+                    </a>
                   )}
                   {p.demo && (
-                    <a href={p.demo} target="_blank" rel="noreferrer">{t("Ver demo →")}</a>
+                    <a
+                      href={p.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${t("Ver demo →")} ${t(p.title)}`}
+                    >
+                      {t("Ver demo →")}
+                    </a>
                   )}
                 </div>
               )}

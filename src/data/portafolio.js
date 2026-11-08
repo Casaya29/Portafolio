@@ -44,6 +44,7 @@ export const skillGroups = [
       { id: "csharp", name: "C#", base: 40 },
       { id: "python", name: "Python", base: 40 },
       { id: "kotlin", name: "Kotlin", base: 30 },
+      { id: "ASP.NET", name: "ASP.NET", base: 30 },
     ],
   },
   {

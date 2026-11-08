@@ -15,15 +15,15 @@ function App() {
 
   return (
     <SettingsProvider>
-      <div>
+      <main>
         <Home />
         <Proyectos />
         <Habilidades />
         <Curriculum />
         <Servicios onSelect={setRequest} />
         <Contacto request={request} />
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </SettingsProvider>
   );
 }

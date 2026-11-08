@@ -86,7 +86,9 @@ export default function TypeText({
   const done = shown.length === text.length;
 
   return (
-    <Tag ref={ref} className={`${className} tw`} aria-label={text}>
+    <Tag ref={ref} className={`${className} tw`}>
+      {/* Texto completo solo para lectores de pantalla */}
+      <span className="sr-only">{text}</span>
       {/* Texto invisible que reserva el espacio, para que la página no salte */}
       <span className="tw__ghost" aria-hidden="true">{text}</span>
       <span className="tw__live" aria-hidden="true">
