@@ -4,32 +4,35 @@ export const CV_URL = "/CV_Ivandy_Casaya.pdf";
 // Cada proyecto que agregues aquí sube las skills automáticamente.
 // Los "tags" deben coincidir con el "id" de una skill.
 export const projects = [
-  {
-    title: "Página web KM Ingeniería",
-    year: 2025,
-    description:
-      "Diseño y desarrollo del front-end y back-end de una página web para un profesional de Arquitectura e Ingeniería.",
-    tags: ["javascript", "sqlserver"],
-    repo: "https://github.com/Casaya29/Civil_Consulting_Frontend", 
-    demo: "", 
-  },
-  {
-    title: "Mininos UCA (front-end)",
-    year: 2022,
-    description:
-      "Colaboré en el front-end, en la documentación del proyecto y en el soporte de mantenimiento.",
-    tags: ["C#", "javascript", "ASP.NET"],
-    repo: "",
-    demo: "",
-  },
-  {
+ {
     title: "Portafolio personal",
     year: 2026,
     description: "Este portafolio, con estilo pixelado, hecho con React y Vite.",
     tags: ["javascript", "vscode"],
     repo: "https://github.com/Casaya29/Portafolio",
     demo: "https://portafolio-ebon-seven-84.vercel.app",
+  }, 
+  {
+    title: "Página web KM Ingeniería",
+    year: 2025,
+    description:
+      "Diseño y desarrollo del front-end y back-end de una página web para un profesional de Arquitectura e Ingeniería.",
+    tags: ["javascript", "sqlserver"],
+    image: "/projects/image.png",
+    repo: "https://github.com/Casaya29/Civil_Consulting_Frontend",
+    demo: "",
+  },   
+  {
+    title: "Mininos UCA (front-end)",
+    year: 2022,
+    description:
+      "Colaboré en el front-end, en la documentación del proyecto y en el soporte de mantenimiento.",
+    tags: ["C#", "javascript", "ASP.NET"],
+     image: "/projects/mininos-uca.webp",
+    repo: "",
+    demo: "",
   },
+ 
 ];
 
 // base = nivel de partida (0-100). Cada proyecto que use la skill suma +8.

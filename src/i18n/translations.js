@@ -39,6 +39,7 @@ export const EN = {
     "Each project is linked to the skills I used in it.",
   "Todos": "All",
   "Aún no hay proyectos con esta habilidad.": "There are no projects with this skill yet.",
+  "Captura de": "Screenshot of",
   "Código →": "Code →",
   "Ver demo →": "View demo →",
   "Página web KM Ingeniería": "KM Ingeniería website",

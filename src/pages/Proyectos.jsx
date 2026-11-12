@@ -6,6 +6,34 @@ import { useSettings } from "../i18n/settings";
 
 const allSkills = skillGroups.flatMap((g) => g.items);
 
+// Imagen del proyecto. Si no hay imagen (o no carga), muestra un recuadro con </>
+function ProjectImage({ src, title }) {
+  const { t } = useSettings();
+  const [failed, setFailed] = useState(false);
+
+  if (!src || failed) {
+    return (
+      <div className="project-card__media project-card__media--empty" aria-hidden="true">
+        <span>{"</>"}</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="project-card__media">
+      <img
+        src={src}
+        alt={`${t("Captura de")} ${t(title)}`}
+        width="640"
+        height="400"
+        loading="lazy"
+        decoding="async"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
+
 // Convierte el id ("javascript") en el nombre ("JavaScript")
 const skillName = (id) => allSkills.find((s) => s.id === id)?.name ?? id;
 
@@ -54,6 +82,8 @@ export default function Proyectos() {
         <div className="projects__grid">
           {visible.map((p) => (
             <article key={p.title} className="project-card">
+              <ProjectImage src={p.image} title={p.title} />
+
               <div className="project-card__head">
                 <h3 className="project-card__title">{t(p.title)}</h3>
                 {p.year && <span className="project-card__year">{p.year}</span>}

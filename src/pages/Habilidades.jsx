@@ -3,6 +3,12 @@ import { projects, skillGroups } from "../data/portafolio";
 import TypeText from "../component/TypeText";
 import { useSettings } from "../i18n/settings";
 
+// Skills que tienen logo en public/icons/tech/<id>.svg
+const LOGOS = new Set([
+  "javascript", "java", "cpp", "csharp", "python", "kotlin",
+  "vs", "vscode", "netbeans", "android", "sqlserver", "mysql", "oracle",
+]);
+
 const levelLabel = (p) =>
   p < 35 ? "Principiante" : p < 60 ? "Intermedio" : p < 85 ? "Avanzado" : "Experto";
 
@@ -24,7 +30,19 @@ function SkillCard({ skill, type }) {
 
   return (
     <div className="skill-card" title={title}>
-      {type === "cards" && <span className="skill-card__icon">{s.icon}</span>}
+      {LOGOS.has(s.id) ? (
+        <img
+          className="skill-card__logo"
+          src={`/icons/tech/${s.id}.svg`}
+          alt=""
+          width="28"
+          height="28"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        type === "cards" && <span className="skill-card__icon">{s.icon}</span>
+      )}
       <div className="skill-card__body">
         <h4 className="skill-card__name">{t(s.name)}</h4>
         <p className="skill-card__level">{t(levelLabel(s.percent))}</p>
